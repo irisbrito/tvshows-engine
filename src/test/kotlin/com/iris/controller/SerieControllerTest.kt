@@ -28,4 +28,11 @@ class SerieControllerTest : AnnotationSpec() {
         val result = serieController.getSeries().body()
         result shouldBe listOf(serie)
     }
+
+    @Test
+    fun `should get serie by id`(){
+        every {service.getById(any())} answers {serie}
+        val result = serieController.getSerieById(id).body()
+        result shouldBe serie
+    }
 }
