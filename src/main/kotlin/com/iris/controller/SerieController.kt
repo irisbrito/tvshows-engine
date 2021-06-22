@@ -1,7 +1,6 @@
 package com.iris.controller
 
 import com.iris.entity.Serie
-import com.iris.repository.SerieRepositoryImpl
 import com.iris.service.SerieServiceImpl
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
@@ -18,5 +17,10 @@ class SerieController(private val serieService: SerieServiceImpl) {
     fun getSeries(): HttpResponse<List<Serie?>> =
         HttpResponse.ok(HttpStatus.OK).body(this.serieService.getAll())
 
+    @Get("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    fun getSerieById(@PathVariable id: UUID): HttpResponse<Serie> =
+        HttpResponse.ok(HttpStatus.OK).body(this.serieService.getById(id))
 
 }
