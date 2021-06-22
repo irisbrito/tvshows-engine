@@ -5,7 +5,9 @@ import com.datastax.oss.driver.api.core.cql.SimpleStatement
 import com.iris.entity.Serie
 import com.iris.exception.SerieNotFoundException
 import java.util.*
+import javax.inject.Singleton
 
+@Singleton
 class SerieRepoitoryImpl (private val cqlSession: CqlSession) : SerieRepository {
 
     override fun getAll(): List<Serie> {
