@@ -29,4 +29,11 @@ class SerieServiceImplTest : AnnotationSpec() {
         val result = serieService.getById(id)
         result shouldBe serie
     }
+
+    @Test
+    fun `should get all series`(){
+        every {repository.getAll()} answers {listOf(serie)}
+        val result = serieService.getAll()
+        result shouldBe listOf(serie)
+    }
 }
