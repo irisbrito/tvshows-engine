@@ -8,7 +8,7 @@ import java.util.*
 import javax.inject.Singleton
 
 @Singleton
-class SerieRepoitoryImpl (private val cqlSession: CqlSession) : SerieRepository {
+class SerieRepositoryImpl (private val cqlSession: CqlSession) : SerieRepository {
 
     override fun getAll(): List<Serie> {
         val queryResult = cqlSession.execute(
