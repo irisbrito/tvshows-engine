@@ -1,7 +1,7 @@
-package com.iris.service
+package com.iris.core.service
 
-import com.iris.entity.Serie
-import com.iris.repository.SerieRepository
+import com.iris.core.model.Serie
+import com.iris.database.repository.SerieRepository
 import java.util.*
 import javax.inject.Singleton
 

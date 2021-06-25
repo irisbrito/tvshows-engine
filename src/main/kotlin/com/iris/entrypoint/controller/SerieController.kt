@@ -1,7 +1,7 @@
 package com.iris.controller
 
-import com.iris.entity.Serie
-import com.iris.service.SerieServiceImpl
+import com.iris.core.entity.Serie
+import com.iris.core.service.SerieServiceImpl
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus
 import io.micronaut.http.MediaType

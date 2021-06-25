@@ -1,4 +1,4 @@
-package com.iris.entity
+package com.iris.core.entity
 
 import java.util.*
 

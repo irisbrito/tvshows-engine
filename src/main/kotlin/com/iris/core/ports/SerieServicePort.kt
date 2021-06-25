@@ -1,11 +1,11 @@
-package com.iris.repository
+package com.iris.core.service
 
-import com.iris.entity.Serie
+import com.iris.core.model.Serie
 import java.util.*
 import javax.inject.Singleton
 
 @Singleton
-interface SerieRepository {
+interface SerieService {
     fun getAll(): List<Serie>
     fun getById(id: UUID): Serie?
 }

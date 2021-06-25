@@ -1,4 +1,4 @@
-package com.iris.exception
+package com.iris.entrypoint.exception
 
 class SerieNotFoundException : RuntimeException() {
 
