@@ -1,8 +1,8 @@
-package com.iris.core.model
+package com.iris.database.entity
 
 import java.util.*
 
-data class Serie(
+data class SerieEntity(
     val id: UUID? = null,
     var name: String = "",
     var description: String = "",

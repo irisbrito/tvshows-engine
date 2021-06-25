@@ -1,6 +1,6 @@
-package com.iris.controller
+package com.iris.entrypoint.controller
 
-import com.iris.core.entity.Serie
+import com.iris.core.model.Serie
 import com.iris.core.service.SerieServiceImpl
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.HttpStatus

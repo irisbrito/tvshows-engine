@@ -1,7 +1,8 @@
 package com.iris.controller
 
-import com.iris.entity.Serie
-import com.iris.service.SerieServiceImpl
+import com.iris.core.model.Serie
+import com.iris.core.service.SerieServiceImpl
+import com.iris.entrypoint.controller.SerieController
 import io.kotest.core.spec.style.AnnotationSpec
 import io.kotest.matchers.shouldBe
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest

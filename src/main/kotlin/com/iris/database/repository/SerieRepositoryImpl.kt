@@ -1,16 +1,17 @@
-package com.iris.repository
+package com.iris.database.repository
 
 import com.datastax.oss.driver.api.core.CqlSession
 import com.datastax.oss.driver.api.core.cql.SimpleStatement
-import com.iris.entity.Serie
-import com.iris.exception.SerieNotFoundException
+import com.iris.core.ports.SerieRepository
+import com.iris.database.entity.SerieEntity
+import com.iris.database.exception.SerieNotFoundException
 import java.util.*
 import javax.inject.Singleton
 
 @Singleton
 class SerieRepositoryImpl (private val cqlSession: CqlSession) : SerieRepository {
 
-    override fun getAll(): List<Serie> {
+    override fun getAll(): List<SerieEntity> {
         val queryResult = cqlSession.execute(
             SimpleStatement
                 .newInstance(
@@ -18,7 +19,7 @@ class SerieRepositoryImpl (private val cqlSession: CqlSession) : SerieRepository
                 )
         )
         return queryResult.map { serie ->
-            Serie(
+            SerieEntity(
                 serie.getUuid("id")!!,
                 serie.getString("name")!!,
                 serie.getString("description")!!,
@@ -28,7 +29,7 @@ class SerieRepositoryImpl (private val cqlSession: CqlSession) : SerieRepository
         }.toList()
     }
 
-    override fun getById(id: UUID): Serie? {
+    override fun getById(id: UUID): SerieEntity? {
         try {
             val queryResult = cqlSession.execute(
                 SimpleStatement
@@ -39,7 +40,7 @@ class SerieRepositoryImpl (private val cqlSession: CqlSession) : SerieRepository
             )
 
             return queryResult.map { serie ->
-                Serie(
+                SerieEntity(
                     serie.getUuid("id")!!,
                     serie.getString("name")!!,
                     serie.getString("description")!!,
@@ -49,7 +50,7 @@ class SerieRepositoryImpl (private val cqlSession: CqlSession) : SerieRepository
             }.single()
 
         } catch (e: RuntimeException) {
-            throw SerieNotFoundException()
+            throw RuntimeException()
         }
 
     }

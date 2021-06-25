@@ -5,7 +5,7 @@ import java.util.*
 import javax.inject.Singleton
 
 @Singleton
-interface SerieRepositoryPort {
+interface SerieRepository {
     fun getAll(): List<SerieEntity>
     fun getById(id: UUID): SerieEntity?
 }
