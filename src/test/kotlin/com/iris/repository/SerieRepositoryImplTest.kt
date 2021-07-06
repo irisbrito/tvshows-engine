@@ -3,7 +3,6 @@ package com.iris.repository
 import com.datastax.oss.driver.api.core.CqlSession
 import com.datastax.oss.driver.api.core.cql.SimpleStatement
 import com.iris.database.repository.SerieRepositoryImpl
-import com.iris.core.model.Serie
 import com.iris.database.entity.SerieEntity
 import io.kotest.core.spec.style.AnnotationSpec
 import io.kotest.matchers.shouldBe
@@ -47,7 +46,7 @@ class SerieRepositoryImplTest : AnnotationSpec() {
         result shouldBe listOfSeries
     }
 
-  /*@Test
+  @Test
     fun `should return serie by id`(){
         val queryResult = cqlSession.execute(
             SimpleStatement
@@ -56,8 +55,8 @@ class SerieRepositoryImplTest : AnnotationSpec() {
                     serie.id
                 )
         ).map { serie ->
-            Serie(
-                serie.getUuid("0e337aaf-2458-4ff8-9116-84492b8d29b1")!!,
+            SerieEntity(
+                serie.getUuid("id")!!,
                 serie.getString("name")!!,
                 serie.getString("description")!!,
                 serie.getString("genre")!!,
@@ -65,8 +64,8 @@ class SerieRepositoryImplTest : AnnotationSpec() {
             )
         }.firstOrNull()
 
-        val result = serieRepositoryImpl.getById(serie.id!!)
+        val result = serieRepositoryImpl.getById(id)
 
         result shouldBe queryResult
-    }*/
+    }
 }

@@ -47,7 +47,7 @@ class SerieRepositoryImpl (private val cqlSession: CqlSession) : SerieRepository
                     serie.getString("genre")!!,
                     serie.getString("where_to_watch")!!
                 )
-            }.single()
+            }.firstOrNull()
 
         } catch (e: RuntimeException) {
             throw RuntimeException()
