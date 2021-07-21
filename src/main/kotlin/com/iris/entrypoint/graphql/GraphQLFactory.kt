@@ -18,8 +18,8 @@ class GraphQLFactory {
     @Bean
     @Singleton
     fun graphQL(resourceResolver: ResourceResolver,
-        series: SerieDataFetcher,
-        serieById: SerieByIdDataFetcher) : GraphQL {
+                series: SerieAllDataFetcher,
+                serieById: SerieByIdDataFetcher) : GraphQL {
 
         val schemaParser = SchemaParser()
         val schemaGenerator = SchemaGenerator()
