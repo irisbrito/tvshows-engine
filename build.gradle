@@ -36,6 +36,9 @@ dependencies {
     implementation ("com.datastax.oss:java-driver-core:4.11.0")
     implementation("io.micronaut.cassandra:micronaut-cassandra")
 
+    //graphql
+    implementation("io.micronaut.graphql:micronaut-graphql:2.3.1")
+
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 
 }
