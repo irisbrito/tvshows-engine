@@ -16,3 +16,11 @@ cassandra:
     maxSchemaAgreementWaitSeconds: 20
     ssl: true
     consistencylevel: LOCAL_ONE
+graphql:
+  enabled: true
+  path: /graphql
+  graphiql:
+    enabled: true
+    version: 0.13.2
+    path: /graphiql
+    template-path: classpath:graphiql/index.html
