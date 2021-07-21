@@ -1,0 +1,20 @@
+type SerieEntity {
+    id : ID!,
+    name: String!,
+    description: String!,
+    genre: String!,
+    whereToWatch: String!
+}
+
+type SerieDto {
+    id : ID!,
+    name: String!,
+    description: String!,
+    genre: String!,
+    whereToWatch: String!
+}
+
+type Query{
+    findSerieById(id: ID!): SerieDto
+    findAllSeries:[SerieDto]!
+}
