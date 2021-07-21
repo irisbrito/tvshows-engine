@@ -16,6 +16,15 @@ class SerieConverter {
                 serieEntity.whereToWatch
             )
 
+        fun serieEntityToSerieDto(serieEntity: SerieEntity?) =
+            SerieDto(
+                serieEntity?.id,
+                serieEntity!!.name,
+                serieEntity!!.description,
+                serieEntity!!.genre,
+                serieEntity!!.whereToWatch
+            )
+
         fun serieToSerieDto(serie: Serie) =
             SerieDto(
                 serie.id,
@@ -28,6 +37,11 @@ class SerieConverter {
         fun serieEntityListToSerieList(serieEntity: List<SerieEntity>) =
             serieEntity.stream().map { serie ->
                 Serie(serie.id, serie.name,serie.description,serie.genre, serie.whereToWatch)
+            }.collect(Collectors.toList())
+
+        fun serieEntityListToSerieDtoList(serieEntity: List<SerieEntity>) =
+            serieEntity.stream().map { serie ->
+                SerieDto(serie.id, serie.name, serie.description, serie.genre, serie.whereToWatch)
             }.collect(Collectors.toList())
 
         fun serieListToSerieDtoList(serieList : List<Serie>) =
